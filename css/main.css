@@ -1,3 +1,19 @@
 /* * {
     background: red;
 } */
+
+.gray-text { 
+    color: darkgray;
+}
+
+.salmon-text {
+    color: salmon;
+}
+
+.indian-red-text {
+    color: indianred
+}
+
+.big-text {
+    font-size: 2.25rem;
+}
