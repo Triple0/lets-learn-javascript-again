@@ -117,7 +117,7 @@ myHeading.addEventListener('mouseleave', function (event) {
 // When you click...
 myHeading.addEventListener('click', function (event) {
     var bigClass = 'big-text';
-    if (!this.className.includes( bigClass )) {
+    if (!this.className.includes(bigClass)) {
         // Exclamation means NOT. So it fires on the OPPOSITE
         this.className += ' big-text'; // Concatenating a new class!
         // Remember , you must have a space between classes when assigning multiple.
@@ -125,13 +125,13 @@ myHeading.addEventListener('click', function (event) {
 });
 
 // Function keyword, followed by the function name (and paramenters if any are needed.)
-function addTwoNumbers ( x, y ){
-    x = Number( x ); //Enforce data-type (number).
-    y = Number( y ); //Enforce data-type (number).
-    return ( x + y ); //Add the two together.
+function addTwoNumbers(x, y) {
+    x = Number(x); //Enforce data-type (number).
+    y = Number(y); //Enforce data-type (number).
+    return (x + y); //Add the two together.
 }
 
-function currentDayString () {
+function currentDayString() {
     // New date object.
     var date = new Date();
     // Declare a string we can store data info in.
@@ -145,25 +145,109 @@ function currentDayString () {
 }
 
 //Output to console.
-console.log( 'The current date is: \r\n'+ currentDayString());
+console.log('The current date is: \r\n' + currentDayString());
 
 
 /**
  * Let's review some conditions-related operators..
  */
 
- // Check for equivalency (type-agnostic.)
- console.log( 1 == true ); //True
- console.log( 'Hello, World' == true ); //False
- console.log( 1 == true ); //False
- console.log( 'test' == 'test' ); //True
- console.log( 36 == '36' ); //True
- console.log( 0 == false ); //True
+// Check for equivalency (type-agnostic.)
+console.log(1 == true); //True
+console.log('Hello, World' == true); //False
+console.log(-137 == true); //False
+console.log('test' == 'test'); //True
+console.log(36 == '36'); //True
+console.log(0 == false); //True
+console.log(`test string` == "test string"); //True
 
- //Check if identical (value comparison including type.)
- console.log( 1 === true ); //False
- console.log( '' === true ); //False
- console.log( -137  === true ); //False
- console.log( 'test' === 'test' ); //True
- console.log( 36 === '36' ); //False
- console.log( 0 === false ); //False
+//Check if identical (value comparison including type.)
+console.log(1 === true); //False
+console.log('' === true); //False
+console.log(-137 === true); //False
+console.log('test' === 'test'); //True
+console.log(36 === '36'); //False
+console.log(0 === false); //False
+console.log(`test string` === "test string") //True
+
+
+/**
+ * Hamburger Menu
+ */
+
+// Let's grab our menu...
+var myNav = document.querySelector('nav');
+
+// And our menu button...
+var myNavButton = document.querySelector('.menu-button');
+
+myNavButton.addEventListener('click', function (event) {
+    // When clicked, add/remove the "nav-open" class (in HTML.)
+    myNav.classList.toggle('nav-open');
+});
+
+/**
+ * Let's dig into objects!
+ */
+/* JavaScript Object Notation (JSON) */
+var myObject = { /* Valid JSON format */
+    name: 'Jerry',
+    age: 61,
+    hobbies: [
+        'snowboarding',
+        'action movies'
+    ]
+};
+
+// Red whole object.
+console.log(myObject);
+
+// Extracting property values
+console.log('Object "name": ' + myObject.name);
+console.log('Object "age": ' + myObject.age);
+console.log('Object "hobbies": ' + myObject.hobbies[0] + ', ' + myObject.hobbies[1]);
+
+// Lets add to the hobbies array... just like normal! It is an array, afterall. 
+
+//Just stored in an object property instead of a variale this time.)
+myObject.hobbies.push( 'programming' );
+console.log( 'Updated hobbies:' );
+console.log( myObject.hobbies );
+
+/**
+ * Let's ramp things up a bit with a method.
+ */
+
+var newObject = {
+    myNum:     5, // property
+    updateNum: function () {// Here is a metod! note the new syntax, versus a function.
+        // Difference from a function?
+        this.myNum = this.myNum + 5;
+        return this.myNum;
+    }
+};
+
+
+/**
+ * Object constructors.
+ */
+
+ function Person ( name, age, hobbies ){
+     this.name     = name;
+     this.age      = age;
+     this.hobbies  = hobbies;
+ }
+
+// Let's make a new instance of "Person". This is called an object.
+ var jerry = new Person( 'Jerry', 61, ['snowboarding', 'action movies', 'programing']);
+ 
+ //And another! Isn't this easier than typing out a whole object every time?
+ var sally = new Person( 
+     'Sally', // name
+     36, //age
+     [//hobbies:
+      'daredevil biking', 
+      'skydiving', 
+      'teaching'
+    ] 
+);
