@@ -236,6 +236,15 @@ var newObject = {
      this.name     = name;
      this.age      = age;
      this.hobbies  = hobbies;
+     this.sayGoodbye = function (){ // Setting up a method in a constructor function.
+         document.body.innerHTML += `
+            <p>
+                This is 
+                <strong>` + this.name + `</strong>, saying <em>goodbye</em>!
+            </p>`
+
+     };
+
  }
 
 // Let's make a new instance of "Person". This is called an object.
@@ -272,3 +281,9 @@ hobbiesString += '</ul>'; // We opened a UL in this string, so lets close it! (C
     </dl>`;  
 
 }
+
+// Extra prototype practice: a property.
+Person.prototype.nickname = '';//Updating a bluepront outside the blueprint
+
+jerry.nickname = 'The Big Jare';
+sally.nickname = 'Sallers';
